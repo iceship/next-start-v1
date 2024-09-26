@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.organizeImports": "always"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "workbench.editor.customLabels.patterns": {
+    "**/src/app/**/page.tsx": "${dirname} - page",
+    "**/src/app/**/layout.tsx": "${dirname} - layout",
+    "**/src/components/**/index.tsx": "${dirname} - component"
+  },
+  "cSpell.words": ["jiti", "nextui"]
+}
