@@ -14,6 +14,9 @@ export function LatestPost() {
       await utils.post.invalidate();
       setName("");
     },
+    onError: (error) => {
+      console.error("Failed to create post", error);
+    },
   });
 
   return (
@@ -35,7 +38,7 @@ export function LatestPost() {
           placeholder="Title"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-full px-4 py-2 text-black"
+          className="w-full rounded-full px-4 py-2 text-black dark:text-white"
         />
         <button
           type="submit"
