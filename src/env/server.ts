@@ -36,9 +36,8 @@ export const env = createEnv({
   },
   // Called when server variables are accessed on the client.
   onInvalidAccess: (variable: string) => {
-    throw new Error(
-      `❌ Attempted to access a server-side environment variable(${variable}) on the client`
-    );
+    const message = `❌ Attempted to access a server-side environment variable on the client: ${variable}`;
+    throw new Error(message);
   },
   emptyStringAsUndefined: true,
   // eslint-disable-next-line n/no-process-env

@@ -13,5 +13,12 @@
     "**/src/app/**/layout.tsx": "${dirname} - layout",
     "**/src/components/**/index.tsx": "${dirname} - component"
   },
-  "cSpell.words": ["jiti", "nextui", "superjson", "tanstack"]
+  "cSpell.words": [
+    "jiti",
+    "nextui",
+    "signin",
+    "signout",
+    "superjson",
+    "tanstack"
+  ]
 }
