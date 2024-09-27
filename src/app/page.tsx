@@ -1,14 +1,12 @@
-import { Button } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div className="flex flex-wrap items-center gap-4">
-      <Button color="default">Default</Button>
-      <Button color="primary">Primary</Button>
-      <Button color="secondary">Secondary</Button>
-      <Button color="success">Success</Button>
-      <Button color="warning">Warning</Button>
-      <Button color="danger">Danger</Button>
-    </div>
+    <Card className="mx-auto mt-4 max-w-md">
+      <CardBody className="text-center">
+        <h1 className="text-5xl">Next.js Starter</h1>
+        <p className="text-xl">A simple starter for Next.js</p>
+      </CardBody>
+    </Card>
   );
 }

@@ -31,7 +31,6 @@ export default function AppNavbar() {
       href: "/profile",
     },
   ];
-
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
