@@ -1,9 +1,9 @@
 import { createEnv } from "@t3-oss/env-nextjs";
-import { config } from "dotenv";
-import { expand } from "dotenv-expand";
+//import { config } from "dotenv";
+//import { expand } from "dotenv-expand";
 import { ZodError, z } from "zod";
 
-expand(config());
+//expand(config());
 
 export const env = createEnv({
   server: {
@@ -23,6 +23,9 @@ export const env = createEnv({
       .refine((s) => s === "true" || s === "false")
       .transform((s) => s === "true")
       .optional(),
+  },
+  client: {
+    // NEXT_PUBLIC_CLIENTVAR: z.string(),
   },
   onValidationError: (error: ZodError) => {
     console.error(

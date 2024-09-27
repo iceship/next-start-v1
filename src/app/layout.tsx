@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
+import { GeistSans } from "geist/font/sans";
+
 import AppNavbar from "@/components/app-navbar";
 import Providers from "@/components/providers";
+import { TRPCReactProvider } from "@/trpc/react";
 
 import "./globals.css";
 
@@ -17,7 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${GeistSans.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link
           rel="icon"
@@ -25,12 +32,14 @@ export default function RootLayout({
         />
       </head>
       <body className="h-screen w-screen">
-        <Providers>
-          <AppNavbar />
-          <main className="flex-grow overflow-auto bg-[url(/light-bg.svg)] bg-cover dark:bg-[url(/dark-bg.svg)]">
-            <Suspense>{children}</Suspense>
-          </main>
-        </Providers>
+        <TRPCReactProvider>
+          <Providers>
+            <AppNavbar />
+            <main className="flex-grow overflow-auto bg-[url(/light-bg.svg)] bg-cover dark:bg-[url(/dark-bg.svg)]">
+              <Suspense>{children}</Suspense>
+            </main>
+          </Providers>
+        </TRPCReactProvider>
       </body>
     </html>
   );
