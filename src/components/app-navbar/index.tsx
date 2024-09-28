@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { useState } from "react";
 
 import {
   Link,
@@ -13,24 +13,37 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import { IconPackage } from "@tabler/icons-react";
+import { useSession } from "next-auth/react";
 
 import AuthButton from "./auth-button";
 import SearchBox from "./search-box";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export default function AppNavbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { status } = useSession();
 
   const menuItems = [
     {
       label: "Home",
       href: "/",
     },
-    {
-      label: "Profile",
-      href: "/profile",
-    },
   ];
+
+  if (status === "authenticated") {
+    menuItems.push(
+      {
+        label: "Dashboard",
+        href: "/dashboard",
+      },
+      {
+        label: "Profile",
+        href: "/profile",
+      }
+    );
+  }
+
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
@@ -52,9 +65,11 @@ export default function AppNavbar() {
             </Link>
           </NavbarItem>
         ))}
-        <NavbarItem>
-          <SearchBox />
-        </NavbarItem>
+        {status === "authenticated" && (
+          <NavbarItem>
+            <SearchBox />
+          </NavbarItem>
+        )}
         <NavbarItem>
           <ThemeSwitcher />
         </NavbarItem>
