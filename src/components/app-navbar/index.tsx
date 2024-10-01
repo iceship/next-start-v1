@@ -38,6 +38,10 @@ export default function AppNavbar() {
         href: "/dashboard",
       },
       {
+        label: "Guestbook",
+        href: "/guestbook",
+      },
+      {
         label: "Profile",
         href: "/profile",
       }
