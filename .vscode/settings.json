@@ -4,6 +4,10 @@
     "source.fixAll": "always",
     "source.organizeImports": "always"
   },
+  "editor.linkedEditing": true,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
   "files.associations": {
     "*.css": "tailwindcss"
   },
@@ -12,6 +16,9 @@
     "**/src/app/**/page.tsx": "${dirname} - page",
     "**/src/app/**/layout.tsx": "${dirname} - layout",
     "**/src/components/**/index.tsx": "${dirname} - component"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
   },
   "cSpell.words": [
     "jiti",
