@@ -5,12 +5,14 @@ import { Card, CardBody } from "@nextui-org/react";
 import { getServerAuthSession } from "@/server/auth";
 import { HydrateClient, api } from "@/trpc/server";
 
+import { LatestGuestbook } from "./_components/guestbook";
 import { LatestPost } from "./_components/post";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
   const session = await getServerAuthSession();
   void api.post.getLatest.prefetch();
+  void api.guestbook.getLatest.prefetch();
   return (
     <HydrateClient>
       <Card className="mx-auto mt-4 max-w-md">
@@ -39,6 +41,9 @@ export default async function Home() {
       </Card>
       <Card className="mx-auto mt-4 max-w-md">
         <CardBody>{session?.user && <LatestPost />}</CardBody>
+      </Card>
+      <Card className="mx-auto mt-4 max-w-md">
+        <CardBody>{session?.user && <LatestGuestbook />}</CardBody>
       </Card>
     </HydrateClient>
   );
