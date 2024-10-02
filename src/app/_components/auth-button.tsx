@@ -26,7 +26,7 @@ export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
       });
     if (minimal) {
       return (
-        <Button onClick={signOutClick} color="danger" variant="ghost">
+        <Button onClick={signOutClick} color="default" variant="ghost">
           <IconBrandGoogle />
           Sign Out
         </Button>
@@ -64,7 +64,7 @@ export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
           callbackUrl: "/",
         })
       }
-      color="danger"
+      color="default"
       variant="ghost"
     >
       <IconBrandGoogle />

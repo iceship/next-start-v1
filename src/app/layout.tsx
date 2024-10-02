@@ -3,7 +3,6 @@ import { Suspense } from "react";
 
 import { GeistSans } from "geist/font/sans";
 
-import AppNavbar from "@/components/app-navbar";
 import Providers from "@/components/providers";
 import { TRPCReactProvider } from "@/trpc/react";
 
@@ -34,7 +33,6 @@ export default function RootLayout({
       <body className="h-screen w-screen">
         <TRPCReactProvider>
           <Providers>
-            <AppNavbar />
             <main className="flex-grow overflow-auto bg-[url(/light-bg.svg)] bg-cover dark:bg-[url(/dark-bg.svg)]">
               <Suspense>{children}</Suspense>
             </main>

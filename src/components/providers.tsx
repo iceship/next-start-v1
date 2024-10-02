@@ -1,23 +1,26 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { ReactNode } from "react";
-
 import { NextUIProvider } from "@nextui-org/react";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeProviderProps } from "next-themes/dist/types";
 
-export default function Providers({ children }: { children: ReactNode }) {
-  const router = useRouter();
+export interface ProvidersProps {
+  children: React.ReactNode;
+  themeProps?: ThemeProviderProps;
+}
+
+export default function Providers({ children, themeProps }: ProvidersProps) {
   return (
     <SessionProvider>
-      <NextUIProvider
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        navigate={router.push}
-        className="flex h-full w-full flex-col"
-      >
-        <NextThemesProvider attribute="class">{children}</NextThemesProvider>
+      <NextUIProvider className="flex h-full w-full flex-col">
+        <NextThemesProvider
+          defaultTheme="system"
+          attribute="class"
+          {...themeProps}
+        >
+          {children}
+        </NextThemesProvider>
       </NextUIProvider>
     </SessionProvider>
   );

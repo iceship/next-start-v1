@@ -15,7 +15,7 @@ import {
 import { IconPackage } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 
-import AuthButton from "./auth-button";
+import AuthButton from "../../app/_components/auth-button";
 import SearchBox from "./search-box";
 import { ThemeSwitcher } from "./theme-switcher";
 

@@ -1,11 +1,10 @@
 import { Card, CardBody, User } from "@nextui-org/react";
 
-import { getServerAuthSession } from "@/server/auth";
 import requireAuth from "@/utils/require-auth";
 
 export default async function Profile() {
-  await requireAuth();
-  const session = (await getServerAuthSession())!;
+  const session = (await requireAuth())!;
+  //const session = (await getServerAuthSession())!;
   return (
     <Card className="mx-auto mt-4 max-w-md">
       <CardBody>

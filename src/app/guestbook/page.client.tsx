@@ -10,10 +10,6 @@ import { InsertGuestbookEntrySchema } from "./schema";
 
 export default function GuestbookClient() {
   const [lastResult, action] = useFormState(createGuestbookEntry, undefined);
-
-  console.log("lastResult:", lastResult);
-  console.log("action:", action);
-
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }) {

@@ -7,4 +7,5 @@ export default async function requireAuth() {
   if (!session?.user) {
     redirect("/");
   }
+  return session;
 }
