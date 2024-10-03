@@ -25,7 +25,7 @@ export default function AuthButton() {
     return (
       <>
         <Card className="mx-auto mt-4 max-w-md">
-          <CardBody className="flex flex-row items-center justify-between px-12">
+          <CardBody className="flex flex-row items-center justify-between px-4">
             <User
               name={data.user?.name}
               description={data.user?.email}
@@ -45,6 +45,7 @@ export default function AuthButton() {
 
   return (
     <Button
+      size="lg"
       onClick={() =>
         signIn("google", {
           callbackUrl: "/",

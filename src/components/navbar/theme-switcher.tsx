@@ -1,14 +1,17 @@
 import { Switch } from "@nextui-org/react";
 import { IconMoon, IconSun } from "@tabler/icons-react";
-import { useTheme as useNextTheme } from "next-themes";
+
+import useSystemTheme from "@/hooks/use-system-theme";
 
 export function ThemeSwitcher({ showLabel }: { showLabel?: boolean }) {
-  //const { theme, setTheme } = useSystemTheme();
-  const { setTheme, resolvedTheme } = useNextTheme();
+  const { theme, setTheme } = useSystemTheme();
+
   return (
     <Switch
-      isSelected={resolvedTheme === "dark" ? true : false}
-      onValueChange={(e) => setTheme(e ? "dark" : "light")}
+      isSelected={theme === "light"}
+      onValueChange={() =>
+        theme === "dark" ? setTheme("light") : setTheme("dark")
+      }
       size="lg"
       color="success"
       startContent={<IconSun />}
