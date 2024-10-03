@@ -3,10 +3,9 @@ import { Suspense } from "react";
 
 import { GeistSans } from "geist/font/sans";
 
-import Providers from "@/components/providers";
-import { TRPCReactProvider } from "@/trpc/react";
+import "@/styles/globals.css";
 
-import "./globals.css";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "Next.js Starter App",
@@ -15,9 +14,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
@@ -31,13 +30,11 @@ export default function RootLayout({
         />
       </head>
       <body className="h-screen w-screen">
-        <TRPCReactProvider>
-          <Providers>
-            <main className="flex-grow overflow-auto bg-[url(/light-bg.svg)] bg-cover dark:bg-[url(/dark-bg.svg)]">
-              <Suspense>{children}</Suspense>
-            </main>
-          </Providers>
-        </TRPCReactProvider>
+        <Providers>
+          <main className="flex-grow overflow-auto bg-[url(/light-bg.svg)] bg-cover dark:bg-[url(/dark-bg.svg)]">
+            <Suspense>{children}</Suspense>
+          </main>
+        </Providers>
       </body>
     </html>
   );

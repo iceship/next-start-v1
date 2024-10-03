@@ -21,10 +21,13 @@
     "editor.defaultFormatter": "Prisma.prisma"
   },
   "cSpell.words": [
+    "burguer",
+    "Burguer",
     "formik",
     "Formik",
     "jiti",
     "nextui",
+    "searchicon",
     "signin",
     "signout",
     "superjson",

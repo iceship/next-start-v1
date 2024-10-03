@@ -5,6 +5,8 @@ import { SessionProvider } from "next-auth/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 
+import { TRPCReactProvider } from "@/trpc/react";
+
 export interface ProvidersProps {
   children: React.ReactNode;
   themeProps?: ThemeProviderProps;
@@ -12,16 +14,18 @@ export interface ProvidersProps {
 
 export default function Providers({ children, themeProps }: ProvidersProps) {
   return (
-    <SessionProvider>
-      <NextUIProvider className="flex h-full w-full flex-col">
-        <NextThemesProvider
-          defaultTheme="system"
-          attribute="class"
-          {...themeProps}
-        >
-          {children}
-        </NextThemesProvider>
-      </NextUIProvider>
-    </SessionProvider>
+    <TRPCReactProvider>
+      <SessionProvider>
+        <NextUIProvider className="flex h-full w-full flex-col">
+          <NextThemesProvider
+            defaultTheme="system"
+            attribute="class"
+            {...themeProps}
+          >
+            {children}
+          </NextThemesProvider>
+        </NextUIProvider>
+      </SessionProvider>
+    </TRPCReactProvider>
   );
 }

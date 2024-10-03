@@ -15,7 +15,7 @@ import {
 import { IconPackage } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 
-import AuthButton from "../../app/_components/auth-button";
+import AuthButton from "../auth/auth-button";
 import SearchBox from "./search-box";
 import { ThemeSwitcher } from "./theme-switcher";
 
@@ -78,7 +78,7 @@ export default function AppNavbar() {
           <ThemeSwitcher />
         </NavbarItem>
         <NavbarItem>
-          <AuthButton minimal={false} />
+          <AuthButton />
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
