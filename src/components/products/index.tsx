@@ -11,10 +11,16 @@ import { InfoIcon } from "@/components/icons/accounts/info-icon";
 import { TrashIcon } from "@/components/icons/accounts/trash-icon";
 import { HouseIcon } from "@/components/icons/breadcrumb/house-icon";
 import { SettingsIcon } from "@/components/icons/sidebar/settings-icon";
+import { api } from "@/trpc/react";
 
 import TableWrapper from "./table";
 
 export const Products = () => {
+  const [message] = api.product.hello.useSuspenseQuery({ text: "war" });
+  console.log(message.greeting);
+  const [products] = api.product.getHello.useSuspenseQuery();
+  console.log(products.message);
+
   return (
     <div className="mx-auto my-10 flex w-full max-w-[95rem] flex-col gap-4 px-4 lg:px-6">
       <ul className="flex">
